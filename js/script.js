@@ -15,20 +15,23 @@ const root = new Vue({
     el: '#root',
     data: {
         emails: [],
-        isFull: undefined,
     },
     methods: {
         getRandomEmails() {
             axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
                 .then((res) => {
+                    // assegno il dato ottenuto in una variabile
                     let emailRand = res.data.response;
+                    // controllo che non sia gia presente nell array
                     while (!this.emails.includes(emailRand)) {
+                        // lo inserisco nell array
                         this.emails.push(emailRand)
                     }
                 })
         }
     },
     mounted() {
+        // richiamo l api 10 volte
         for (let i = 0; i < 10; i++) {
             this.getRandomEmails();
         }
