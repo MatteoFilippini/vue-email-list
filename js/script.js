@@ -10,6 +10,6 @@ Vue.config.devtools = true;
 const root = new Vue({
     el: '#root',
     data: {
-        emails: ['pippo', 'pluto'],
+        emails: [],
     }
 })
