@@ -16,18 +16,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
 
 <body>
     <div id="root">
-        <i class="fas fa-certificate fa-spin" v-show="emails.length===0"></i>
-        <ul>
-            <!-- stampo quando ho l array completo -->
-            <li v-if="emails.length === 10" v-for="email in emails">
-                {{email}}
-            </li>
-        </ul>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <main class="d-flex justify-content-center align-items-center">
+                        <i class="fas fa-certificate fa-spin fa-4x" v-show="emails.length!==10"></i>
+                        <ul>
+                            <!-- stampo quando ho l array completo -->
+                            <li v-if="emails.length === 10" v-for="email in emails">
+                                {{email}}
+                            </li>
+                        </ul>
+                    </main>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script src="js/script.js"></script>
