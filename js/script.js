@@ -6,6 +6,7 @@ Usando Vue.js, generare 10 indirizzi email e stamparli in pagina all'interno di 
 
 Bonus
 Far comparire gli indirizzi email solamente quando sono stati tutti generati.
+Evitare i doppioni nella lista delle mail
 */
 
 Vue.config.devtools = true;
@@ -20,8 +21,10 @@ const root = new Vue({
         getRandomEmails() {
             axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
                 .then((res) => {
-                    console.log(res.data.response);
-                    this.emails.push(res.data.response)
+                    let emailRand = res.data.response;
+                    while (!this.emails.includes(emailRand)) {
+                        this.emails.push(emailRand)
+                    }
                 })
         }
     },
